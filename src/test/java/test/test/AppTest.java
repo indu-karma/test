@@ -1,38 +1,27 @@
 package test.test;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
+
+public class AppTest
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
+	@Test
+    public void AppTestDemo()
     {
-        super( testName );
+    	System.setProperty("webdriver.chrome.driver","C:\\Users\\DELL\\Desktop\\Auto_Data creation\\ChromeDriver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+    	
+        String baseUrl = "http://www.facebook.com";
+        String tagName = "";
+        
+        driver.get(baseUrl);
+        tagName = driver.findElement(By.id("email")).getTagName();
+        System.out.println(tagName);
+        driver.close();
+     
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }
